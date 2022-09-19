@@ -12,7 +12,25 @@ public class Maximum_Subarray {
         System.out.println(maxSubArray(testCase2));
         System.out.println(maxSubArray(testCase3));
         System.out.println(maxSubArray(testCase4));
+
+        System.out.println("\n" +maxSubArray1(testCase1));
+        System.out.println(maxSubArray1(testCase2));
+        System.out.println(maxSubArray1(testCase3));
+        System.out.println(maxSubArray1(testCase4));
     }
+
+    private static int maxSubArray1(int[] nums) {
+        int total = Integer.MIN_VALUE, local = 0;
+
+        for (int i : nums) {
+            local += i;
+            total = Math.max(total, local);
+            if (local < 0) local = 0;
+        }
+
+        return total;
+    }
+
     public static int maxSubArray(int[] nums) {
         int total = Integer.MIN_VALUE, temp = 0;
         for (int i : nums) {
